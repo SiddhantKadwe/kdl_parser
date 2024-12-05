@@ -1,4 +1,4 @@
-cmake_minimum_required(VERSION 3.7.2)
+cmake_minimum_required(VERSION 3.10)
 
 project(kdl_parser)
 
@@ -61,9 +61,9 @@ if(catkin_FOUND)
   target_link_libraries(${PROJECT_NAME} ${catkin_LIBRARIES})
 endif()
 
-if(urdf_FOUND)
-  target_link_libraries(${PROJECT_NAME} ${urdf_LIBRARIES})
-endif()
+# if(urdf_FOUND)
+#   target_link_libraries(${PROJECT_NAME} ${urdf_LIBRARIES})
+# endif()
 
 if(WIN32)
   target_compile_definitions(${PROJECT_NAME} PRIVATE "KDL_PARSER_BUILDING_DLL")
