@@ -81,6 +81,8 @@ if(catkin_FOUND AND CATKIN_ENABLE_TESTING)
   target_link_libraries(test_inertia_rpy ${PROJECT_NAME})
 endif()
 
+configure_file("${CMAKE_SOURCE_DIR}/${PROJECT_NAME}.pc.in" "${CMAKE_BINARY_DIR}/${PROJECT_NAME}.pc" @ONLY)
+
 if(catkin_FOUND)
   # How does CATKIN do this?
   #rosbuild_add_rostest(${PROJECT_SOURCE_DIR}/test/test_kdl_parser.launch)
@@ -98,5 +100,7 @@ else()
           LIBRARY DESTINATION lib
           ARCHIVE DESTINATION lib)
   install(DIRECTORY include/${PROJECT_NAME}/
-          DESTINATION include)
+          DESTINATION include/${PROJECT_NAME})
+  install(FILES "${CMAKE_BINARY_DIR}/${PROJECT_NAME}.pc"
+          DESTINATION lib/pkgconfig)
 endif()

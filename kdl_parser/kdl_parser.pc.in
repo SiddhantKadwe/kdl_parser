@@ -1,0 +1,11 @@
+prefix=@CMAKE_INSTALL_PREFIX@
+exec_prefix=${prefix}
+libdir=${prefix}/lib
+includedir=${prefix}/include/kdl_parser
+
+Name: ${PROJECT_NAME}
+Description: KDL Parser Library
+Version: @PROJECT_VERSION@
+Requires: orocos_kdl
+Libs: -L${libdir} -lkdl_parser
+Cflags: -I${includedir}
